@@ -1,0 +1,13 @@
+timetable,day,slot,start_time,room,subject_code,subject_name,faculty,slots_occupied
+Div A,3,4,12:00,R1,HHHH,S1,F1,1
+Div A,0,2,10:00,R1,HHHH,S1,F1,1
+Div A,3,0,08:00,R1,HHHH,S1,F1,1
+Div A,2,7,15:00,R1,HHHH,S1,F1,1
+Div A,1,6,14:00,R1,F2,S2,F2,1
+Div A,3,4,12:00,R2,F2,S2,F2,1
+Div A,1,4,12:00,R1,F2,S2,F2,1
+Div A,0,2,10:00,R2,F2,S2,F2,1
+Div A,4,7,15:00,R1,F2,S2,F2,1
+Div A,3,7,15:00,R1,HSBD,S3,F1,1
+Div A,1,5,13:00,R1,HSBD,S3,F1,1
+Div A,0,7,15:00,R1,HSBD,S3,F1,1

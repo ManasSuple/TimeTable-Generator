@@ -1,0 +1,10 @@
+day,start_time,end_time,room,subject_code,subject_name,faculty
+2,09:00,10:00,Room 101,maths,maths,Prof. A
+4,10:00,11:00,Room 101,maths,maths,Prof. A
+2,14:00,15:00,Room 101,maths,maths,Prof. A
+0,14:00,15:00,Room 101,maths,maths,Prof. A
+0,15:00,16:00,Room 101,English,English,Prof. B
+4,11:00,12:00,Room 101,English,English,Prof. B
+4,10:00,11:00,Room 102,English,English,Prof. B
+3,11:00,12:00,Room 101,Computer,Computer,Prof. A
+3,16:00,17:00,Room 101,Computer,Computer,Prof. A

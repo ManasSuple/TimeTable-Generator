@@ -1,0 +1,83 @@
+[
+  {
+    "day": 3,
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "room": "Room 101",
+    "subject_code": "maths",
+    "subject_name": "maths",
+    "faculty": "Prof. A"
+  },
+  {
+    "day": 3,
+    "start_time": "11:00",
+    "end_time": "12:00",
+    "room": "Room 101",
+    "subject_code": "maths",
+    "subject_name": "maths",
+    "faculty": "Prof. A"
+  },
+  {
+    "day": 4,
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "room": "Room 101",
+    "subject_code": "maths",
+    "subject_name": "maths",
+    "faculty": "Prof. A"
+  },
+  {
+    "day": 0,
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "room": "Room 101",
+    "subject_code": "maths",
+    "subject_name": "maths",
+    "faculty": "Prof. A"
+  },
+  {
+    "day": 2,
+    "start_time": "16:00",
+    "end_time": "17:00",
+    "room": "Room 101",
+    "subject_code": "English",
+    "subject_name": "English",
+    "faculty": "Prof. B"
+  },
+  {
+    "day": 1,
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "room": "Room 101",
+    "subject_code": "English",
+    "subject_name": "English",
+    "faculty": "Prof. B"
+  },
+  {
+    "day": 1,
+    "start_time": "10:00",
+    "end_time": "11:00",
+    "room": "Room 101",
+    "subject_code": "English",
+    "subject_name": "English",
+    "faculty": "Prof. B"
+  },
+  {
+    "day": 0,
+    "start_time": "14:00",
+    "end_time": "15:00",
+    "room": "Room 101",
+    "subject_code": "Computer",
+    "subject_name": "Computer",
+    "faculty": "Prof. A"
+  },
+  {
+    "day": 0,
+    "start_time": "10:00",
+    "end_time": "11:00",
+    "room": "Room 101",
+    "subject_code": "Computer",
+    "subject_name": "Computer",
+    "faculty": "Prof. A"
+  }
+]

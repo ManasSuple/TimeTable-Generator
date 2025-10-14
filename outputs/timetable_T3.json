@@ -1,0 +1,189 @@
+[
+  {
+    "timetable": "T3",
+    "day": 2,
+    "slot": 4,
+    "start_time": "12:00",
+    "room": "R1",
+    "subject_code": "1234",
+    "subject_name": "S1",
+    "faculty": "F1",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 2,
+    "slot": 1,
+    "start_time": "09:00",
+    "room": "R1",
+    "subject_code": "1234",
+    "subject_name": "S1",
+    "faculty": "F1",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 1,
+    "slot": 2,
+    "start_time": "10:00",
+    "room": "R1",
+    "subject_code": "1234",
+    "subject_name": "S1",
+    "faculty": "F1",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 3,
+    "slot": 5,
+    "start_time": "13:00",
+    "room": "R1",
+    "subject_code": "1234",
+    "subject_name": "S1",
+    "faculty": "F1",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 3,
+    "slot": 3,
+    "start_time": "11:00",
+    "room": "R1",
+    "subject_code": "1234",
+    "subject_name": "S1",
+    "faculty": "F1",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 1,
+    "slot": 3,
+    "start_time": "11:00",
+    "room": "R1",
+    "subject_code": "567",
+    "subject_name": "S2",
+    "faculty": "F2",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 1,
+    "slot": 6,
+    "start_time": "14:00",
+    "room": "R1",
+    "subject_code": "567",
+    "subject_name": "S2",
+    "faculty": "F2",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 1,
+    "slot": 4,
+    "start_time": "12:00",
+    "room": "R1",
+    "subject_code": "567",
+    "subject_name": "S2",
+    "faculty": "F2",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 4,
+    "slot": 4,
+    "start_time": "12:00",
+    "room": "R1",
+    "subject_code": "890",
+    "subject_name": "S3",
+    "faculty": "F3",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 1,
+    "slot": 6,
+    "start_time": "14:00",
+    "room": "R2",
+    "subject_code": "890",
+    "subject_name": "S3",
+    "faculty": "F3",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 0,
+    "slot": 1,
+    "start_time": "09:00",
+    "room": "R1",
+    "subject_code": "890",
+    "subject_name": "S3",
+    "faculty": "F3",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 3,
+    "slot": 6,
+    "start_time": "14:00",
+    "room": "R1",
+    "subject_code": "890",
+    "subject_name": "S3",
+    "faculty": "F3",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 1,
+    "slot": 2,
+    "start_time": "10:00",
+    "room": "R2",
+    "subject_code": "235",
+    "subject_name": "S4",
+    "faculty": "F4",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 1,
+    "slot": 0,
+    "start_time": "08:00",
+    "room": "R1",
+    "subject_code": "235",
+    "subject_name": "S4",
+    "faculty": "F4",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 2,
+    "slot": 0,
+    "start_time": "08:00",
+    "room": "R1",
+    "subject_code": "235",
+    "subject_name": "S4",
+    "faculty": "F4",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 1,
+    "slot": 1,
+    "start_time": "09:00",
+    "room": "R1",
+    "subject_code": "235",
+    "subject_name": "S4",
+    "faculty": "F4",
+    "slots_occupied": 1
+  },
+  {
+    "timetable": "T3",
+    "day": 4,
+    "slot": 0,
+    "start_time": "08:00",
+    "room": "R1",
+    "subject_code": "235",
+    "subject_name": "S4",
+    "faculty": "F4",
+    "slots_occupied": 1
+  }
+]
