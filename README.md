@@ -136,14 +136,6 @@ Please follow PEP 8, write docstrings, and test edge cases.
 
 ---
 
-## ℹ️ License & Acknowledgments
-
-* You may include a license (MIT, Apache, etc.) — add `LICENSE` file
-* Credit algorithm ideas or inspiration sources
-* Thanks for using / contributing!
-
----
-
 ## ✅ To Do / Roadmap
 
 * Add timetable **visual grid view** (e.g. days × times)
