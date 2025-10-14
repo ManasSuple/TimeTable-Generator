@@ -42,12 +42,12 @@ The system intelligently maps subjects, classrooms, teachers, and time slots whi
 
 ## 🧩 Core Features
 
--Automated timetable generation based on subject–faculty mapping
--Conflict-free scheduling (no overlapping slots)
--Teacher-wise and class-wise timetable outputs
--Dynamic CSV input/output support for easy data handling
--Fast generation time compared to manual scheduling
--Scalable logic — can adapt to multiple departments or batch structures
+-✅Automated timetable generation based on subject–faculty mapping
+-✅Conflict-free scheduling (no overlapping slots)
+-✅Teacher-wise and class-wise timetable outputs
+-✅Dynamic CSV input/output support for easy data handling
+-✅Fast generation time compared to manual scheduling
+-✅Scalable logic — can adapt to multiple departments or batch structures
 
 ---
 
