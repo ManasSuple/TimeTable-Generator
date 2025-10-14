@@ -1,14 +1,14 @@
-🧠 AI-Powered TimeTable Generator
+## 🧠 AI-Powered TimeTable Generator
 
 ---
-🚀 Overview
+## 🚀 Overview
 
 The AI TimeTable Generator is a smart scheduling system that automatically generates optimized class timetables for educational institutions.
 It eliminates the hassle of manual timetable creation by using logical constraints and automation to ensure no clashes, balanced subject distribution, and efficient faculty utilization.
 
 ---
 
-🎯 Objective
+## 🎯 Objective
 
 This project was built to solve a real administrative challenge — the time-consuming and error-prone process of manually preparing college timetables.
 The system intelligently maps subjects, classrooms, teachers, and time slots while ensuring smooth scheduling and minimal conflicts.
