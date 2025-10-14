@@ -13,12 +13,75 @@ from timetable import (
 
 
 def schedule_to_dataframe(schedule: List[Dict[str, Any]]) -> pd.DataFrame:
+    # Convert flat schedule to a grid: first column = time range, columns = days (Mon..Sun)
     df = pd.DataFrame(schedule)
-    if not df.empty:
-        df = df.sort_values(by=["day", "start_time", "room", "subject_name"]).reset_index(drop=True)
-    ordered_cols = ["day", "start_time", "end_time", "room", "subject_code", "subject_name", "faculty"]
-    existing_cols = [c for c in ordered_cols if c in df.columns]
-    return df[existing_cols]
+    if df.empty:
+        return df
+    # Ensure expected columns
+    for col in ["day", "start_time", "end_time", "subject_name", "room"]:
+        if col not in df.columns:
+            df[col] = ""
+
+    # Normalize day order starting Monday
+    day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    # Get unique days from data and order them
+    unique_days = df["day"].unique()
+    # Create ordered categories with only unique values
+    ordered_categories = []
+    for day in day_order:
+        if day in unique_days:
+            ordered_categories.append(day)
+    # Add any remaining days not in standard order
+    for day in unique_days:
+        if day not in ordered_categories:
+            ordered_categories.append(day)
+    
+    df["day"] = pd.Categorical(df["day"], categories=ordered_categories, ordered=True)
+
+    # Build time label and create a sortable key that puts AM before PM
+    df["Time"] = df["start_time"].fillna("") + " - " + df["end_time"].fillna("")
+    def _time_sort_key(s: str) -> tuple:
+        s = (s or "").strip().lower()
+        # Expect formats like '9:00 am', '10:30 pm'
+        try:
+            import datetime as _dt
+            dt = _dt.datetime.strptime(s, "%I:%M %p")
+            ampm_order = 0 if "am" in s else 1
+            return (ampm_order, dt.hour % 12, dt.minute)
+        except Exception:
+            # Fallback: push unknowns to end
+            return (2, 99, 99)
+    df["_sort_key"] = df["start_time"].apply(_time_sort_key)
+    df = df.sort_values(by=["_sort_key", "day"]).drop(columns=["_sort_key"]).reset_index(drop=True)
+
+    # Cell content: Subject (Room)
+    df["cell"] = df["subject_name"].fillna("") + df.apply(lambda r: f" ({r['room']})" if r.get("room") else "", axis=1)
+
+    # Pivot
+    pivot = df.pivot_table(index="Time", columns="day", values="cell", aggfunc=lambda x: ", ".join([v for v in x if v]))
+    # Reindex columns to Monday..Sunday order for any present
+    cols_present = [d for d in ordered_categories if d in pivot.columns]
+    pivot = pivot.reindex(columns=cols_present)
+    # Fill NaN with empty strings
+    pivot = pivot.fillna("")
+    
+    # Sort the pivot by time using the same logic
+    def _pivot_time_sort_key(time_str: str) -> tuple:
+        time_str = (time_str or "").strip().lower()
+        # Extract start time from "start - end" format
+        start_time = time_str.split(" - ")[0] if " - " in time_str else time_str
+        try:
+            import datetime as _dt
+            dt = _dt.datetime.strptime(start_time, "%I:%M %p")
+            ampm_order = 0 if "am" in start_time else 1
+            return (ampm_order, dt.hour % 12, dt.minute)
+        except Exception:
+            return (2, 99, 99)
+    
+    # Sort the pivot index by time
+    pivot = pivot.sort_index(key=_pivot_time_sort_key)
+    pivot = pivot.reset_index()
+    return pivot
 
 
 def dataframe_to_csv_bytes(df: pd.DataFrame) -> bytes:
@@ -30,8 +93,12 @@ def schedule_to_json_bytes(schedule: List[Dict[str, Any]]) -> bytes:
 
 
 def build_config_via_form() -> Dict[str, Any]:
+    # Subject count outside form for immediate updates
+    st.subheader("Basic Settings")
+    subj_count = st.number_input("Number of subjects", min_value=1, value=3, step=1, key="subject_count")
+    
     with st.form("config_form"):
-        st.subheader("Basic Settings")
+        st.subheader("Configuration Details")
         num_timetables = st.number_input("Number of timetables", min_value=1, value=2, step=1)
         timetable_names_raw = st.text_input(
             "Timetable names (comma-separated, optional)", value="A, B"
@@ -41,11 +108,11 @@ def build_config_via_form() -> Dict[str, Any]:
         with col1:
             monday = st.checkbox("Monday", value=True)
         with col2:
-            tuesday = st.checkbox("Tueday", value=True)
+            tuesday = st.checkbox("Tuesday", value=True)
         with col3:
             wednesday = st.checkbox("Wednesday", value=True)
         with col4:
-            thursday = thursday = st.checkbox("Thursday", value=True)
+            thursday = st.checkbox("Thursday", value=True)
         with col5:
             friday = st.checkbox("Friday", value=True)
         with col6:
@@ -55,8 +122,19 @@ def build_config_via_form() -> Dict[str, Any]:
         
         # Calculate working days count
         working_days = sum([monday, tuesday, wednesday, thursday, friday, saturday, sunday])
-        day_start_input = st.text_input("Day start (12-hour, e.g., 9:00 am)", value="9:00 am")
-        day_end_input = st.text_input("Day end (12-hour, e.g., 5:00 pm)", value="5:00 pm")
+        st.write("Day start time:")
+        col_start_hour, col_start_ampm = st.columns([1, 1])
+        with col_start_hour:
+            start_hour = st.selectbox("Hour", options=list(range(1, 13)), index=8)  # 9am
+        with col_start_ampm:
+            start_ampm = st.selectbox("AM/PM", options=["am", "pm"], index=0)
+
+        st.write("Day end time:")
+        col_end_hour, col_end_ampm = st.columns([1, 1])
+        with col_end_hour:
+            end_hour = st.selectbox("Hour", options=list(range(1, 13)), index=4, key="end_hour")  # 5pm
+        with col_end_ampm:
+            end_ampm = st.selectbox("AM/PM", options=["am", "pm"], index=1, key="end_ampm")
         slot_len = st.number_input("Lecture slot length (minutes)", min_value=10, value=50, step=5)
         st.caption("Recess is auto-placed near mid-day only if the day is ≥ 4 hours.")
 
@@ -75,8 +153,9 @@ def build_config_via_form() -> Dict[str, Any]:
 
         st.markdown("---")
         st.subheader("Subjects")
-        subj_count = st.number_input("Number of subjects", min_value=1, value=3, step=1)
+        
         subjects: List[Dict[str, Any]] = []
+        # Use the subject count from outside the form
         for i in range(int(subj_count)):
             with st.expander(f"Subject {i+1}", expanded=(i == 0)):
                 name = st.text_input(f"Name #{i+1}", key=f"subj_name_{i}")
@@ -113,19 +192,17 @@ def build_config_via_form() -> Dict[str, Any]:
         if is_selected:
             selected_days.append(day_names[i])
     
-    # Convert 12-hour inputs to 24-hour strings for internal use
+    # Convert dropdown selections to 24-hour strings for internal use
     from datetime import datetime
-    def _to_24h(s: str) -> str:
-        s = (s or "").strip()
-        for fmt in ["%I:%M %p", "%I %p", "%H:%M"]:
-            try:
-                return datetime.strptime(s, fmt).strftime("%H:%M")
-            except Exception:
-                pass
-        return s  # fallback as-is
+    def _to_24h(hour: int, ampm: str) -> str:
+        try:
+            dt = datetime.strptime(f"{hour}:00 {ampm.upper()}", "%I:%M %p")
+            return dt.strftime("%H:%M")
+        except Exception:
+            return "09:00"  # fallback
 
-    day_start_24 = _to_24h(day_start_input)
-    day_end_24 = _to_24h(day_end_input)
+    day_start_24 = _to_24h(start_hour, start_ampm)
+    day_end_24 = _to_24h(end_hour, end_ampm)
 
     cfg: Dict[str, Any] = {
         "num_timetables": int(num_timetables),
@@ -167,7 +244,6 @@ def main():
         except Exception as e:
             st.error(f"Failed to load uploaded JSON: {e}")
 
-    st.markdown("### Build a configuration (optional)")
     built_cfg = build_config_via_form()
     if built_cfg:
         config = built_cfg

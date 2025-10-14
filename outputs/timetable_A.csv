@@ -1,7 +1,7 @@
 day,start_time,end_time,room,subject_code,subject_name,faculty
-Thursday,03:40 pm,04:30 pm,Room 101,sub1,sub1,Prof. B
-Wednesday,10:40 am,11:30 am,Room 101,sub1,sub1,Prof. B
-Wednesday,09:00 am,09:50 am,Room 101,sub2,sub2,Prof. B
-Monday,10:40 am,11:30 am,Room 101,sub2,sub2,Prof. B
-Thursday,09:00 am,09:50 am,Room 101,sub3,sub3,Prof. B
-Wednesday,03:40 pm,04:30 pm,Room 101,sub3,sub3,Prof. B
+Wednesday,12:20 pm,01:10 pm,Room 101,sub1,sub1,Prof. A
+Friday,09:50 am,10:40 am,Room 101,sub1,sub1,Prof. A
+Friday,02:50 pm,03:40 pm,Room 101,sub2,sub2,Prof. A
+Wednesday,02:00 pm,02:50 pm,Room 101,sub2,sub2,Prof. A
+Monday,09:50 am,10:40 am,Room 101,sub3,sub3,Prof. A
+Tuesday,12:20 pm,01:10 pm,Room 101,sub3,sub3,Prof. A
