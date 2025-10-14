@@ -30,7 +30,7 @@ The system intelligently maps subjects, classrooms, teachers, and time slots whi
 
 ---
 
-##⚙️ Tech Stack
+## ⚙️ Tech Stack
 
 -**Backend**: Python (Flask / Core Logic with AI Automation)
 -**Frontend**: Streamlit / Web-based Interface (if applicable — confirm if you used Streamlit or pure HTML/Flask UI)
@@ -40,7 +40,7 @@ The system intelligently maps subjects, classrooms, teachers, and time slots whi
 
 ---
 
-##🧩 Core Features
+## 🧩 Core Features
 
 ✅ Automated timetable generation based on subject–faculty mapping
 ✅ Conflict-free scheduling (no overlapping slots)
@@ -51,7 +51,7 @@ The system intelligently maps subjects, classrooms, teachers, and time slots whi
 
 ---
 
-##🧠 How It Works
+## 🧠 How It Works
 
 -Input Files:
   -Teacher and subject mapping (teachers.csv)
@@ -63,7 +63,7 @@ The system intelligently maps subjects, classrooms, teachers, and time slots whi
 
 ---
 
-##📈 Key Highlights
+## 📈 Key Highlights
 
 -Designed, structured, and coded entire scheduling logic from scratch.
 -Focused on algorithmic thinking, data structure handling, and constraint optimization.
