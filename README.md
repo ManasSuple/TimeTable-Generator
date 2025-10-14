@@ -45,7 +45,6 @@ TimeTable-Generator/
    git clone https://github.com/ManasSuple/TimeTable-Generator.git
    cd TimeTable-Generator
 
-````
 
 2. **Remove any broken virtual env (if exists)**
 
