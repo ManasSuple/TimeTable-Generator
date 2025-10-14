@@ -73,26 +73,43 @@ class LectureReq:
 
 # --------------------------- Helper functions -------------------------------
 
-def build_day_slots(day_start, day_end, slot_length_minutes, recess_after_slots=None):
+def build_day_slots(day_start, day_end, slot_length_minutes):
     """
     Returns list of (slot_index, start_time_str) for a single working day.
-    recess_after_slots: if provided, will indicate after how many slots the recess occurs (0-based).
+    Automatically inserts a recess (blocks one slot) near mid-day only if the
+    working day duration is at least 4 hours. For shorter days, no recess.
     """
     fmt = "%H:%M"
     start = datetime.strptime(day_start, fmt)
     end = datetime.strptime(day_end, fmt)
-    slots = []
+    # Build base slots
+    base = []
     idx = 0
     cur = start
     while cur + timedelta(minutes=slot_length_minutes) <= end:
-        # if this slot would start at or beyond end, break
-        slots.append((idx, cur.strftime(fmt)))
+        base.append((idx, cur.strftime(fmt)))
         idx += 1
         cur = cur + timedelta(minutes=slot_length_minutes)
-    if recess_after_slots is not None and 0 <= recess_after_slots < len(slots):
-        # Marking recess is handled on higher level; we just return all available base slots
-        pass
-    return slots
+
+    total_minutes = int((end - start).total_seconds() // 60)
+    if total_minutes < 240 or len(base) == 0:
+        return base
+
+    # choose the slot closest to mid-time as recess
+    mid = start + (end - start) / 2
+    closest_j = None
+    closest = None
+    for j, (_, t) in enumerate(base):
+        tdt = datetime.strptime(t, fmt).replace(year=mid.year, month=mid.month, day=mid.day)
+        delta = abs((tdt - mid).total_seconds())
+        if closest is None or delta < closest:
+            closest = delta
+            closest_j = j
+
+    filtered = [(i, t) for k, (i, t) in enumerate(base) if k != closest_j]
+    # reindex to keep slot_index contiguous within the day
+    reindexed = [(k, t) for k, (_, t) in enumerate(filtered)]
+    return reindexed
 
 
 def shuffle_and_try_assign(reqs, slots, rooms, faculties):
@@ -171,11 +188,13 @@ def generate_single_timetable(config, timetable_name, random_seed=None):
     day_start = config['day_start']
     day_end = config['day_end']
     slot_len = config['lecture_slot_length_minutes']
-    recess_after_slots = config.get('recess_after_slots')
-
+    
+    # Get day names if available, otherwise use default numbering
+    day_names = config.get('selected_days', [f"Day {i+1}" for i in range(working_days)])
+    
     all_slots = []
     for d in range(working_days):
-        day_slots = build_day_slots(day_start, day_end, slot_len, recess_after_slots)
+        day_slots = build_day_slots(day_start, day_end, slot_len)
         # convert to Slot objects but include day offset in slot_index
         for si, start_time in day_slots:
             # if recess position should be skipped we could mark it later; here we keep linear list
@@ -220,12 +239,15 @@ def generate_single_timetable(config, timetable_name, random_seed=None):
                     if sobj and sobj.start_time_str:
                         start_dt = datetime.strptime(sobj.start_time_str, fmt)
                         end_dt = start_dt + timedelta(minutes=slot_len)
-                        end_time_str = end_dt.strftime(fmt)
+                        # Format as 12-hour with am/pm
+                        start_time_str = start_dt.strftime("%I:%M %p").lower()
+                        end_time_str = end_dt.strftime("%I:%M %p").lower()
                     else:
+                        start_time_str = ''
                         end_time_str = ''
                     schedule.append({
-                        'day': day_idx,
-                        'start_time': sobj.start_time_str if sobj else '',
+                        'day': day_names[day_idx] if day_idx < len(day_names) else f"Day {day_idx+1}",
+                        'start_time': start_time_str,
                         'end_time': end_time_str,
                         'room': room,
                         'subject_code': req.subject_code,
@@ -285,11 +307,21 @@ def interactive_config_prompt():
     names = input('Provide comma-separated names for timetables (leave blank to auto-generate): ') or ''
     cfg['timetable_names'] = [n.strip() for n in names.split(',')] if names else []
     cfg['working_days'] = int(input('Number of working days per week (e.g. 5): '))
-    cfg['day_start'] = input('Day start time (HH:MM, 24h) e.g. 09:00: ') or '09:00'
-    cfg['day_end'] = input('Day end time (HH:MM, 24h) e.g. 17:00: ') or '17:00'
+    # Accept 12-hour inputs and convert to 24-hour for internal use
+    day_start_in = input('Day start time (12-hour, e.g., 9:00 am): ') or '9:00 am'
+    day_end_in = input('Day end time (12-hour, e.g., 5:00 pm): ') or '5:00 pm'
+    def _to_24h_cli(s):
+        fmts = ["%I:%M %p", "%I %p", "%H:%M"]
+        for f in fmts:
+            try:
+                return datetime.strptime(s.strip(), f).strftime("%H:%M")
+            except Exception:
+                pass
+        return s
+    cfg['day_start'] = _to_24h_cli(day_start_in)
+    cfg['day_end'] = _to_24h_cli(day_end_in)
     cfg['lecture_slot_length_minutes'] = int(input('Lecture slot length in minutes (e.g. 50): ') or '50')
-    recess_after = input('Insert recess after how many slots? (enter integer or blank): ')
-    cfg['recess_after_slots'] = int(recess_after) if recess_after.strip() != '' else None
+    # Recess is auto-placed near mid-day only if working duration >= 4 hours
     # Rooms
     rooms = []
     print('Enter room names one per line. Blank line to finish:')

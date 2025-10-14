@@ -1,10 +1,7 @@
 day,start_time,end_time,room,subject_code,subject_name,faculty
-3,12:00,13:00,Room 101,maths,maths,Prof. A
-3,11:00,12:00,Room 101,maths,maths,Prof. A
-4,12:00,13:00,Room 101,maths,maths,Prof. A
-0,15:00,16:00,Room 101,maths,maths,Prof. A
-2,16:00,17:00,Room 101,English,English,Prof. B
-1,12:00,13:00,Room 101,English,English,Prof. B
-1,10:00,11:00,Room 101,English,English,Prof. B
-0,14:00,15:00,Room 101,Computer,Computer,Prof. A
-0,10:00,11:00,Room 101,Computer,Computer,Prof. A
+Thursday,03:40 pm,04:30 pm,Room 101,sub1,sub1,Prof. B
+Wednesday,10:40 am,11:30 am,Room 101,sub1,sub1,Prof. B
+Wednesday,09:00 am,09:50 am,Room 101,sub2,sub2,Prof. B
+Monday,10:40 am,11:30 am,Room 101,sub2,sub2,Prof. B
+Thursday,09:00 am,09:50 am,Room 101,sub3,sub3,Prof. B
+Wednesday,03:40 pm,04:30 pm,Room 101,sub3,sub3,Prof. B

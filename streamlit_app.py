@@ -2,7 +2,6 @@ import json
 import io
 import os
 from typing import Dict, List, Any
-
 import streamlit as st
 import pandas as pd
 
@@ -17,15 +16,7 @@ def schedule_to_dataframe(schedule: List[Dict[str, Any]]) -> pd.DataFrame:
     df = pd.DataFrame(schedule)
     if not df.empty:
         df = df.sort_values(by=["day", "start_time", "room", "subject_name"]).reset_index(drop=True)
-    ordered_cols = [
-        "day",
-        "start_time",
-        "end_time",
-        "room",
-        "subject_code",
-        "subject_name",
-        "faculty",
-    ]
+    ordered_cols = ["day", "start_time", "end_time", "room", "subject_code", "subject_name", "faculty"]
     existing_cols = [c for c in ordered_cols if c in df.columns]
     return df[existing_cols]
 
@@ -45,11 +36,29 @@ def build_config_via_form() -> Dict[str, Any]:
         timetable_names_raw = st.text_input(
             "Timetable names (comma-separated, optional)", value="A, B"
         ).strip()
-        working_days = st.number_input("Working days per week", min_value=1, max_value=7, value=5, step=1)
-        day_start = st.text_input("Day start (HH:MM, 24h)", value="09:00")
-        day_end = st.text_input("Day end (HH:MM, 24h)", value="17:00")
+        st.write("Select working days:")
+        col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
+        with col1:
+            monday = st.checkbox("Monday", value=True)
+        with col2:
+            tuesday = st.checkbox("Tueday", value=True)
+        with col3:
+            wednesday = st.checkbox("Wednesday", value=True)
+        with col4:
+            thursday = thursday = st.checkbox("Thursday", value=True)
+        with col5:
+            friday = st.checkbox("Friday", value=True)
+        with col6:
+            saturday = st.checkbox("Saturday", value=False)
+        with col7:
+            sunday = st.checkbox("Sunday", value=False)
+        
+        # Calculate working days count
+        working_days = sum([monday, tuesday, wednesday, thursday, friday, saturday, sunday])
+        day_start_input = st.text_input("Day start (12-hour, e.g., 9:00 am)", value="9:00 am")
+        day_end_input = st.text_input("Day end (12-hour, e.g., 5:00 pm)", value="5:00 pm")
         slot_len = st.number_input("Lecture slot length (minutes)", min_value=10, value=50, step=5)
-        recess_after = st.text_input("Recess after how many slots? (leave blank for none)", value="")
+        st.caption("Recess is auto-placed near mid-day only if the day is ≥ 4 hours.")
 
         st.markdown("---")
         st.subheader("Rooms & Faculties")
@@ -96,14 +105,37 @@ def build_config_via_form() -> Dict[str, Any]:
         if not submitted:
             return {}
 
+    # Create list of selected day names
+    day_names = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    selected_days = []
+    day_checks = [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
+    for i, is_selected in enumerate(day_checks):
+        if is_selected:
+            selected_days.append(day_names[i])
+    
+    # Convert 12-hour inputs to 24-hour strings for internal use
+    from datetime import datetime
+    def _to_24h(s: str) -> str:
+        s = (s or "").strip()
+        for fmt in ["%I:%M %p", "%I %p", "%H:%M"]:
+            try:
+                return datetime.strptime(s, fmt).strftime("%H:%M")
+            except Exception:
+                pass
+        return s  # fallback as-is
+
+    day_start_24 = _to_24h(day_start_input)
+    day_end_24 = _to_24h(day_end_input)
+
     cfg: Dict[str, Any] = {
         "num_timetables": int(num_timetables),
         "timetable_names": [n.strip() for n in timetable_names_raw.split(",") if n.strip()],
         "working_days": int(working_days),
-        "day_start": day_start,
-        "day_end": day_end,
+        "selected_days": selected_days,
+        "day_start": day_start_24,
+        "day_end": day_end_24,
         "lecture_slot_length_minutes": int(slot_len),
-        "recess_after_slots": (int(recess_after) if recess_after.strip() != "" else None),
+        # Recess auto-placement; no explicit config needed
         "rooms": [{"name": r.strip()} for r in rooms_multiline.splitlines() if r.strip()],
         "faculties": [{"name": f.strip()} for f in faculties_multiline.splitlines() if f.strip()],
         "subjects": subjects,
