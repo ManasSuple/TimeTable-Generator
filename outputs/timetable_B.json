@@ -6,48 +6,48 @@
     "room": "Room 101",
     "subject_code": "sub1",
     "subject_name": "sub1",
-    "faculty": "Prof. A"
+    "faculty": "Prof. B"
   },
   {
     "day": "Wednesday",
-    "start_time": "12:20 pm",
-    "end_time": "01:10 pm",
+    "start_time": "03:40 pm",
+    "end_time": "04:30 pm",
     "room": "Room 101",
     "subject_code": "sub1",
     "subject_name": "sub1",
-    "faculty": "Prof. A"
-  },
-  {
-    "day": "Tuesday",
-    "start_time": "02:00 pm",
-    "end_time": "02:50 pm",
-    "room": "Room 101",
-    "subject_code": "sub2",
-    "subject_name": "sub2",
-    "faculty": "Prof. A"
+    "faculty": "Prof. B"
   },
   {
     "day": "Monday",
-    "start_time": "09:00 am",
-    "end_time": "09:50 am",
+    "start_time": "11:30 am",
+    "end_time": "12:20 pm",
     "room": "Room 101",
     "subject_code": "sub2",
     "subject_name": "sub2",
-    "faculty": "Prof. A"
-  },
-  {
-    "day": "Wednesday",
-    "start_time": "09:00 am",
-    "end_time": "09:50 am",
-    "room": "Room 101",
-    "subject_code": "sub3",
-    "subject_name": "sub3",
-    "faculty": "Prof. A"
+    "faculty": "Prof. B"
   },
   {
     "day": "Tuesday",
     "start_time": "09:50 am",
     "end_time": "10:40 am",
+    "room": "Room 101",
+    "subject_code": "sub2",
+    "subject_name": "sub2",
+    "faculty": "Prof. B"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "03:40 pm",
+    "end_time": "04:30 pm",
+    "room": "Room 102",
+    "subject_code": "sub3",
+    "subject_name": "sub3",
+    "faculty": "Prof. A"
+  },
+  {
+    "day": "Monday",
+    "start_time": "03:40 pm",
+    "end_time": "04:30 pm",
     "room": "Room 101",
     "subject_code": "sub3",
     "subject_name": "sub3",

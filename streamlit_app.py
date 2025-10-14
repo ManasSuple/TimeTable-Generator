@@ -12,7 +12,7 @@ from timetable import (
 )
 
 
-def schedule_to_dataframe(schedule: List[Dict[str, Any]]) -> pd.DataFrame:
+def schedule_to_dataframe(schedule: List[Dict[str, Any]], config: Dict[str, Any] = None) -> pd.DataFrame:
     # Convert flat schedule to a grid: first column = time range, columns = days (Mon..Sun)
     df = pd.DataFrame(schedule)
     if df.empty:
@@ -22,17 +22,21 @@ def schedule_to_dataframe(schedule: List[Dict[str, Any]]) -> pd.DataFrame:
         if col not in df.columns:
             df[col] = ""
 
+    # Get working days from config if available, otherwise use data
+    if config and "selected_days" in config:
+        working_days = config["selected_days"]
+    else:
+        working_days = df["day"].unique().tolist()
+    
     # Normalize day order starting Monday
     day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    # Get unique days from data and order them
-    unique_days = df["day"].unique()
-    # Create ordered categories with only unique values
+    # Create ordered categories with working days first, then any others
     ordered_categories = []
     for day in day_order:
-        if day in unique_days:
+        if day in working_days:
             ordered_categories.append(day)
     # Add any remaining days not in standard order
-    for day in unique_days:
+    for day in working_days:
         if day not in ordered_categories:
             ordered_categories.append(day)
     
@@ -59,24 +63,27 @@ def schedule_to_dataframe(schedule: List[Dict[str, Any]]) -> pd.DataFrame:
 
     # Pivot
     pivot = df.pivot_table(index="Time", columns="day", values="cell", aggfunc=lambda x: ", ".join([v for v in x if v]))
-    # Reindex columns to Monday..Sunday order for any present
-    cols_present = [d for d in ordered_categories if d in pivot.columns]
-    pivot = pivot.reindex(columns=cols_present)
+    # Ensure ALL working days are shown as columns, even if empty
+    pivot = pivot.reindex(columns=ordered_categories)
     # Fill NaN with empty strings
     pivot = pivot.fillna("")
     
     # Sort the pivot by time using the same logic
-    def _pivot_time_sort_key(time_str: str) -> tuple:
-        time_str = (time_str or "").strip().lower()
-        # Extract start time from "start - end" format
-        start_time = time_str.split(" - ")[0] if " - " in time_str else time_str
-        try:
-            import datetime as _dt
-            dt = _dt.datetime.strptime(start_time, "%I:%M %p")
-            ampm_order = 0 if "am" in start_time else 1
-            return (ampm_order, dt.hour % 12, dt.minute)
-        except Exception:
-            return (2, 99, 99)
+    def _pivot_time_sort_key(index):
+        # Handle pandas Index - convert to list of sort keys
+        sort_keys = []
+        for time_str in index:
+            time_str = str(time_str).strip().lower()
+            # Extract start time from "start - end" format
+            start_time = time_str.split(" - ")[0] if " - " in time_str else time_str
+            try:
+                import datetime as _dt
+                dt = _dt.datetime.strptime(start_time, "%I:%M %p")
+                ampm_order = 0 if "am" in start_time else 1
+                sort_keys.append((ampm_order, dt.hour % 12, dt.minute))
+            except Exception:
+                sort_keys.append((2, 99, 99))
+        return sort_keys
     
     # Sort the pivot index by time
     pivot = pivot.sort_index(key=_pivot_time_sort_key)
@@ -173,10 +180,10 @@ def build_config_via_form() -> Dict[str, Any]:
                         {
                             "name": name,
                             "code": code or name,
-                            "faculty": faculty,
+                            "faculty": faculty.strip(),  # Trim whitespace
                             "sessions_per_week": int(sessions),
                             "duration_minutes": int(duration),
-                            "preferred_room": (pref_room or None),
+                            "preferred_room": (pref_room.strip() if pref_room else None),
                         }
                     )
 
@@ -289,7 +296,7 @@ def main():
 
     for name, schedule in results.items():
         st.markdown(f"### Timetable: {name}")
-        df = schedule_to_dataframe(schedule)
+        df = schedule_to_dataframe(schedule, config)
         st.dataframe(df, use_container_width=True)
 
         csv_bytes = dataframe_to_csv_bytes(df)

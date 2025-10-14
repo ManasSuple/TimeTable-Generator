@@ -201,19 +201,24 @@ def generate_single_timetable(config, timetable_name, random_seed=None):
             s = Slot(day_index=d, slot_index=si, start_time_str=start_time)
             all_slots.append(s)
 
-    rooms = [r['name'] for r in config['rooms']]
-    faculties = [f['name'] for f in config['faculties']]
+    rooms = [r['name'].strip() for r in config['rooms']]
+    faculties = [f['name'].strip() for f in config['faculties']]
 
     # Expand subject session requirements into LectureReq items
     reqs = []
     for subj in config['subjects']:
         subj_code = subj.get('code', subj['name'])
         subj_name = subj['name']
-        faculty = subj['faculty']
+        faculty = subj['faculty'].strip()  # Trim whitespace
         sessions_per_week = subj.get('sessions_per_week', 1)
         duration_minutes = subj.get('duration_minutes', slot_len)
         slots_needed = max(1, duration_minutes // slot_len)
         preferred_room = subj.get('preferred_room')
+        
+        # Validate faculty exists
+        if faculty not in faculties:
+            raise ValueError(f"Faculty '{faculty}' not found in faculty list: {faculties}")
+        
         # create that many LectureReqs
         for _ in range(sessions_per_week):
             reqs.append(LectureReq(timetable_name, subj_code, subj_name, faculty, slots_needed, preferred_room))
