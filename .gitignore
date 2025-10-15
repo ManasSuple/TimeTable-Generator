@@ -1,1 +1,25 @@
-.env
+# === Python standard ignores ===
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# === Virtual environments ===
+venv/
+.env/
+.venv/
+env/
+ENV/
+
+# === IDE / Editor files ===
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# === OS-specific files ===
+Thumbs.db
