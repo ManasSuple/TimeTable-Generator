@@ -1,7 +1,8 @@
 import json
 import io
 import os
-from typing import Dict, List, Any
+import re
+from typing import Dict, List, Any, Tuple
 import streamlit as st
 import pandas as pd
 
@@ -10,6 +11,54 @@ from timetable import (
     save_schedule_csv,
     save_schedule_json,
 )
+
+
+def _read_table_file(uploaded_file) -> pd.DataFrame:
+    try:
+        if uploaded_file.name.lower().endswith(".csv"):
+            return pd.read_csv(uploaded_file)
+        elif uploaded_file.name.lower().endswith((".xlsx", ".xls")):
+            return pd.read_excel(uploaded_file)
+        else:
+            st.warning("Unsupported file type. Please upload CSV or Excel.")
+            return pd.DataFrame()
+    except Exception as e:
+        st.error(f"Failed to read file: {e}")
+        return pd.DataFrame()
+
+
+def _parse_faculty_divisions(cell: Any) -> List[Tuple[str, List[str]]]:
+    """Parses a cell like 'Mr. X [A] Ms. Y [B]' -> [("Mr. X", ["A"]), ("Ms. Y", ["B"])].
+    Works robustly with multiple tags like [A3 B3] by extracting the letter tag.
+    """
+    if cell is None:
+        return []
+    text = str(cell)
+    # Normalize whitespace
+    text = re.sub(r"\s+", " ", text).strip()
+    if not text:
+        return []
+    # Split by common separators while keeping names grouped
+    chunks = re.split(r"\s{2,}|,|;|\n|\r", text)
+    results: List[Tuple[str, List[str]]] = []
+    for chunk in chunks:
+        chunk = chunk.strip()
+        if not chunk:
+            continue
+        # Extract all bracket groups and the base name before first bracket
+        name = re.split(r"\[", chunk, maxsplit=1)[0].strip()
+        tags = re.findall(r"\[([^\]]+)\]", chunk)
+        divisions: List[str] = []
+        for t in tags:
+            # pick letters A/B (ignore batch numbers)
+            letters = re.findall(r"[A-Za-z]", t)
+            for L in letters:
+                U = L.upper()
+                if U in ("A", "B", "C", "D") and U not in divisions:
+                    divisions.append(U)
+        if name:
+            results.append((name, divisions or ["A"]))
+    return results
 
 
 def schedule_to_dataframe(schedule: List[Dict[str, Any]], config: Dict[str, Any] = None) -> pd.DataFrame:
@@ -97,6 +146,178 @@ def dataframe_to_csv_bytes(df: pd.DataFrame) -> bytes:
 
 def schedule_to_json_bytes(schedule: List[Dict[str, Any]]) -> bytes:
     return json.dumps(schedule, indent=2).encode("utf-8")
+
+
+def build_config_via_upload() -> Dict[str, Any]:
+    st.subheader("Upload Semester Table")
+    up = st.file_uploader("Upload CSV/Excel of your semester table", type=["csv", "xlsx", "xls"], key="sheet_uploader")
+    if up is None:
+        return {}
+
+    df = _read_table_file(up)
+    if df.empty:
+        return {}
+
+    with st.expander("Preview uploaded data", expanded=False):
+        st.dataframe(df.head(30), use_container_width=True)
+
+    with st.form("upload_builder_form"):
+        st.subheader("Generate from Uploaded Data")
+        num_timetables = st.number_input("Number of timetables", min_value=1, value=2, step=1, key="up_num_tt")
+        timetable_names_raw = st.text_input("Timetable names (comma-separated, optional)", value="A, B", key="up_tt_names").strip()
+
+        st.write("Select working days:")
+        col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
+        with col1:
+            monday = st.checkbox("Monday", value=True, key="up_mon")
+        with col2:
+            tuesday = st.checkbox("Tuesday", value=True, key="up_tue")
+        with col3:
+            wednesday = st.checkbox("Wednesday", value=True, key="up_wed")
+        with col4:
+            thursday = st.checkbox("Thursday", value=True, key="up_thu")
+        with col5:
+            friday = st.checkbox("Friday", value=True, key="up_fri")
+        with col6:
+            saturday = st.checkbox("Saturday", value=False, key="up_sat")
+        with col7:
+            sunday = st.checkbox("Sunday", value=False, key="up_sun")
+        working_days = sum([monday, tuesday, wednesday, thursday, friday, saturday, sunday])
+
+        st.write("Day start time:")
+        col_start_hour, col_start_ampm = st.columns([1, 1])
+        with col_start_hour:
+            start_hour = st.selectbox("Hour", options=list(range(1, 13)), index=8, key="up_start_hr")
+        with col_start_ampm:
+            start_ampm = st.selectbox("AM/PM", options=["am", "pm"], index=0, key="up_start_ampm")
+
+        st.write("Day end time:")
+        col_end_hour, col_end_ampm = st.columns([1, 1])
+        with col_end_hour:
+            end_hour = st.selectbox("Hour", options=list(range(1, 13)), index=4, key="up_end_hr")
+        with col_end_ampm:
+            end_ampm = st.selectbox("AM/PM", options=["am", "pm"], index=1, key="up_end_ampm")
+
+        st.markdown("---")
+        st.subheader("Slots & Divisions")
+        theory_slot = st.number_input("Theory slot length (minutes)", min_value=10, value=50, step=5, key="up_theory_slot")
+        practical_slot = st.number_input("Practical slot length (minutes)", min_value=10, value=100, step=5, key="up_prac_slot")
+        theory_sessions_per_week = st.number_input("Default theory sessions per subject (per week)", min_value=1, value=3, step=1, key="up_theory_sess")
+        practical_sessions_per_week = st.number_input("Default practical sessions per subject (per week)", min_value=1, value=1, step=1, key="up_prac_sess")
+        divisions = st.multiselect("Divisions/classes present", options=["A", "B", "C", "D"], default=["A", "B"], key="up_divs")
+
+        st.markdown("---")
+        st.subheader("Rooms (optional)")
+        theory_rooms_text = st.text_area("Theory rooms (one per line)", value="Classroom A\nClassroom B", height=80, key="up_rooms_th")
+        practical_rooms_text = st.text_area("Practical rooms/labs (one per line)", value="Lab 1\nLab 2", height=80, key="up_rooms_pr")
+
+        submitted = st.form_submit_button("Build configuration from sheet")
+        if not submitted:
+            return {}
+
+    # Utilities
+    from datetime import datetime as _dt
+    def _to_24h(hour: int, ampm: str) -> str:
+        try:
+            dt = _dt.strptime(f"{hour}:00 {ampm.upper()}", "%I:%M %p")
+            return dt.strftime("%H:%M")
+        except Exception:
+            return "09:00"
+
+    # Identify likely columns
+    col_map = {
+        "code": None,
+        "name": None,          # fallback generic name
+        "subj_short": None,    # Subject Short Form
+        "subj_full": None,     # Subject Full Form
+        "faculty": None,
+        "type": None,
+    }
+    for c in df.columns:
+        lc = str(c).strip().lower()
+        if col_map["code"] is None and ("subject code" in lc or lc == "code"):
+            col_map["code"] = c
+        if col_map["subj_short"] is None and ("subject short" in lc or lc == "short" or lc == "subject short form"):
+            col_map["subj_short"] = c
+        if col_map["subj_full"] is None and ("subject full" in lc or lc == "full" or lc == "subject full form"):
+            col_map["subj_full"] = c
+        if col_map["name"] is None and lc in ("subject", "name"):
+            col_map["name"] = c
+        if col_map["faculty"] is None and ("faculty coordinator" in lc or "faculty" in lc):
+            col_map["faculty"] = c
+        if col_map["type"] is None and ("subject type" in lc or "type" in lc):
+            col_map["type"] = c
+
+    missing_cols = [k for k, v in col_map.items() if v is None]
+    if missing_cols:
+        st.error(f"Could not detect required columns from the sheet: {', '.join(missing_cols)}")
+        return {}
+
+    # Build faculties and subjects
+    faculties_set = set()
+    subjects: List[Dict[str, Any]] = []
+    for _, row in df.iterrows():
+        # Prefer Subject Short Form, then generic name, then full form
+        subj_name_candidates = [
+            col_map.get("subj_short"),
+            col_map.get("name"),
+            col_map.get("subj_full"),
+        ]
+        subj_name_val = ""
+        for cand in subj_name_candidates:
+            if cand is not None and pd.notna(row[cand]) and str(row[cand]).strip():
+                subj_name_val = str(row[cand]).strip()
+                break
+        subj_name = subj_name_val
+        subj_code = str(row[col_map["code"]]).strip() if pd.notna(row[col_map["code"]]) else subj_name
+        subj_type_raw = str(row[col_map["type"]]).strip().lower() if pd.notna(row[col_map["type"]]) else "theory"
+        is_practical = "prac" in subj_type_raw
+        faculty_info = _parse_faculty_divisions(row[col_map["faculty"]])
+
+        # Map division -> faculty name using tags, fallback to first listed name
+        division_to_faculty: Dict[str, str] = {}
+        for fname, divs in faculty_info:
+            faculties_set.add(fname.strip())
+            for d in divs:
+                division_to_faculty[d] = fname.strip()
+        fallback_faculty = faculty_info[0][0].strip() if faculty_info else "TBD Faculty"
+        if not faculty_info:
+            faculties_set.add(fallback_faculty)
+
+        for d in divisions:
+            fac = division_to_faculty.get(d, fallback_faculty)
+            subjects.append({
+                "name": f"{subj_name} ({d})",
+                "code": f"{subj_code}-{d}",
+                "faculty": fac,
+                "sessions_per_week": int(practical_sessions_per_week if is_practical else theory_sessions_per_week),
+                "duration_minutes": int(practical_slot if is_practical else theory_slot),
+                "preferred_room": None,
+            })
+
+    # Assemble config
+    selected_days = []
+    for day, is_sel in zip(["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], [monday, tuesday, wednesday, thursday, friday, saturday, sunday]):
+        if is_sel:
+            selected_days.append(day)
+
+    cfg: Dict[str, Any] = {
+        "num_timetables": int(num_timetables),
+        "timetable_names": [n.strip() for n in timetable_names_raw.split(",") if n.strip()],
+        "working_days": int(working_days),
+        "selected_days": selected_days,
+        "day_start": _to_24h(start_hour, start_ampm),
+        "day_end": _to_24h(end_hour, end_ampm),
+        "lecture_slot_length_minutes": int(min(theory_slot, practical_slot)),
+        # rooms
+        "rooms": ([{"name": r.strip()} for r in theory_rooms_text.splitlines() if r.strip()] +
+                   [{"name": r.strip()} for r in practical_rooms_text.splitlines() if r.strip()]),
+        "faculties": [{"name": f} for f in sorted(faculties_set)],
+        "subjects": subjects,
+        "attempts_per_timetable": 200,
+        "max_overall_attempts": 1000,
+    }
+    return cfg
 
 
 def build_config_via_form() -> Dict[str, Any]:
@@ -232,30 +453,36 @@ def build_config_via_form() -> Dict[str, Any]:
 def main():
     st.set_page_config(page_title="AI Timetable Generator", layout="wide")
     st.title("AI Timetable Generator (Streamlit UI)")
-    st.caption("Upload a config JSON or build one below, then generate conflict-free timetables.")
+    st.caption("Upload a semester sheet or config JSON, or use the manual form.")
 
     with st.sidebar:
         st.header("Configuration")
-        uploaded = st.file_uploader("Upload config JSON", type=["json"]) 
-        st.markdown("Or build config via the form on the main page.")
+        mode = st.radio("Build configuration via", options=["Upload Sheet", "Manual Form", "JSON"], index=0)
+        uploaded_json = st.file_uploader("Upload config JSON", type=["json"], key="json_uploader") if mode == "JSON" else None
         output_to_disk = st.checkbox("Also save outputs to ./outputs", value=True)
         output_dir = st.text_input("Output directory", value="./outputs")
 
     # Start with any config saved in session
     config: Dict[str, Any] = st.session_state.get("config", {})
-    if uploaded is not None:
+    if mode == "JSON" and uploaded_json is not None:
         try:
-            config = json.load(uploaded)
+            config = json.load(uploaded_json)
             st.success("Loaded configuration from uploaded JSON.")
             st.session_state["config"] = config
         except Exception as e:
             st.error(f"Failed to load uploaded JSON: {e}")
-
-    built_cfg = build_config_via_form()
-    if built_cfg:
-        config = built_cfg
-        st.success("Configuration built from form.")
-        st.session_state["config"] = config
+    elif mode == "Upload Sheet":
+        built_cfg = build_config_via_upload()
+        if built_cfg:
+            config = built_cfg
+            st.success("Configuration built from uploaded sheet.")
+            st.session_state["config"] = config
+    else:
+        built_cfg = build_config_via_form()
+        if built_cfg:
+            config = built_cfg
+            st.success("Configuration built from form.")
+            st.session_state["config"] = config
 
     if not config:
         st.info("Upload a JSON or build a config to proceed.")

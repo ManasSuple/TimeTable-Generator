@@ -1,7 +1,165 @@
 day,start_time,end_time,room,subject_code,subject_name,faculty
-Wednesday,02:50 pm,03:40 pm,Room 101,sub1,sub1,Prof. B
-Wednesday,03:40 pm,04:30 pm,Room 101,sub1,sub1,Prof. B
-Monday,11:30 am,12:20 pm,Room 101,sub2,sub2,Prof. B
-Tuesday,09:50 am,10:40 am,Room 101,sub2,sub2,Prof. B
-Wednesday,03:40 pm,04:30 pm,Room 102,sub3,sub3,Prof. A
-Monday,03:40 pm,04:30 pm,Room 101,sub3,sub3,Prof. A
+Wednesday,09:00 am,10:00 am,Classroom A,EXL501-A,Digital VLSI Design Laboratory (A),Mr. Sagar Mhatre
+Wednesday,10:00 am,11:00 am,Classroom A,EXL501-A,Digital VLSI Design Laboratory (A),Mr. Sagar Mhatre
+Tuesday,11:00 am,12:00 pm,Classroom A,EXL501-B,Digital VLSI Design Laboratory (B),Mr. Sagar Mhatre
+Tuesday,01:00 pm,02:00 pm,Classroom A,EXL501-B,Digital VLSI Design Laboratory (B),Mr. Sagar Mhatre
+Tuesday,11:00 am,12:00 pm,Classroom B,EXL502-A,Discrete Time Signal Processing Laboratory (A),Dr. Priya Hankare
+Tuesday,01:00 pm,02:00 pm,Classroom B,EXL502-A,Discrete Time Signal Processing Laboratory (A),Dr. Priya Hankare
+Tuesday,08:00 am,09:00 am,Classroom A,EXL502-B,Discrete Time Signal Processing Laboratory (B),Dr. Priya Hankare
+Tuesday,09:00 am,10:00 am,Classroom A,EXL502-B,Discrete Time Signal Processing Laboratory (B),Dr. Priya Hankare
+Tuesday,09:00 am,10:00 am,Classroom B,EXDLL5042-A,"Department Level Elective Course - I
+Sensor Technology Laboratory (A)",Mr. Sandeep Mishra
+Tuesday,10:00 am,11:00 am,Classroom B,EXDLL5042-A,"Department Level Elective Course - I
+Sensor Technology Laboratory (A)",Mr. Sandeep Mishra
+Friday,02:00 pm,03:00 pm,Classroom A,EXDLL5042-B,"Department Level Elective Course - I
+Sensor Technology Laboratory (B)",Mr. Sandeep Mishra
+Friday,03:00 pm,04:00 pm,Classroom A,EXDLL5042-B,"Department Level Elective Course - I
+Sensor Technology Laboratory (B)",Mr. Sandeep Mishra
+Thursday,10:00 am,11:00 am,Classroom A,EXDLL5044-A,"Department Level Elective Course - I 
+Data Structure and Algorithms Laboratory (A)",Ms. Rupali Satpute
+Thursday,11:00 am,12:00 pm,Classroom A,EXDLL5044-A,"Department Level Elective Course - I 
+Data Structure and Algorithms Laboratory (A)",Ms. Rupali Satpute
+Monday,01:00 pm,02:00 pm,Classroom A,EXDLL5044-B,"Department Level Elective Course - I 
+Data Structure and Algorithms Laboratory (B)",Ms. Rupali Satpute
+Monday,02:00 pm,03:00 pm,Classroom A,EXDLL5044-B,"Department Level Elective Course - I 
+Data Structure and Algorithms Laboratory (B)",Ms. Rupali Satpute
+Tuesday,02:00 pm,03:00 pm,Classroom A,MMCL5051-A,"Multidisciplinary Minor Course:
+Artificial Intelligence Laboratory (A)",Dr. Jayashree Khanapuri
+Tuesday,03:00 pm,04:00 pm,Classroom A,MMCL5051-A,"Multidisciplinary Minor Course:
+Artificial Intelligence Laboratory (A)",Dr. Jayashree Khanapuri
+Monday,03:00 pm,04:00 pm,Classroom A,MMCL5051-B,"Multidisciplinary Minor Course:
+Artificial Intelligence Laboratory (B)",Dr. Jayashree Khanapuri
+Monday,04:00 pm,05:00 pm,Classroom A,MMCL5051-B,"Multidisciplinary Minor Course:
+Artificial Intelligence Laboratory (B)",Dr. Jayashree Khanapuri
+Wednesday,10:00 am,11:00 am,Classroom B,MMCL5052-A,"Multidisciplinary Minor Course:
+IOT & Cloud Computing Laboratory (A)",Dr. Pradyna Kamble
+Wednesday,11:00 am,12:00 pm,Classroom B,MMCL5052-A,"Multidisciplinary Minor Course:
+IOT & Cloud Computing Laboratory (A)",Dr. Pradyna Kamble
+Tuesday,09:00 am,10:00 am,Lab 1,MMCL5052-B,"Multidisciplinary Minor Course:
+IOT & Cloud Computing Laboratory (B)",Dr. Pradyna Kamble
+Tuesday,10:00 am,11:00 am,Lab 1,MMCL5052-B,"Multidisciplinary Minor Course:
+IOT & Cloud Computing Laboratory (B)",Dr. Pradyna Kamble
+Monday,09:00 am,10:00 am,Classroom A,MMCL5053-A,"Multidisciplinary Minor Course:
+Very Large Scale Integrated Circuits Laboratory (A)",Mr. Sagar Mhatre
+Monday,10:00 am,11:00 am,Classroom A,MMCL5053-A,"Multidisciplinary Minor Course:
+Very Large Scale Integrated Circuits Laboratory (A)",Mr. Sagar Mhatre
+Thursday,09:00 am,10:00 am,Classroom B,MMCL5053-B,"Multidisciplinary Minor Course:
+Very Large Scale Integrated Circuits Laboratory (B)",Mr. Sagar Mhatre
+Thursday,10:00 am,11:00 am,Classroom B,MMCL5053-B,"Multidisciplinary Minor Course:
+Very Large Scale Integrated Circuits Laboratory (B)",Mr. Sagar Mhatre
+Tuesday,10:00 am,11:00 am,Lab 2,EXPR54-A,Community Engagement PBL – Minor Project Laboratory (Embedded Systems based projects) (A),Ms. Swati Shinde
+Tuesday,11:00 am,12:00 pm,Lab 2,EXPR54-A,Community Engagement PBL – Minor Project Laboratory (Embedded Systems based projects) (A),Ms. Swati Shinde
+Wednesday,03:00 pm,04:00 pm,Classroom A,EXPR54-B,Community Engagement PBL – Minor Project Laboratory (Embedded Systems based projects) (B),Ms. Swati Shinde
+Wednesday,04:00 pm,05:00 pm,Classroom A,EXPR54-B,Community Engagement PBL – Minor Project Laboratory (Embedded Systems based projects) (B),Ms. Swati Shinde
+Wednesday,01:00 pm,02:00 pm,Classroom A,EXXA511-A,Business Communication & Ethics  Laboratory (A),Dr. Vaishali Ghadyalji
+Wednesday,02:00 pm,03:00 pm,Classroom A,EXXA511-A,Business Communication & Ethics  Laboratory (A),Dr. Vaishali Ghadyalji
+Tuesday,08:00 am,09:00 am,Lab 2,EXXA511-B,Business Communication & Ethics  Laboratory (B),Dr. Vaishali Ghadyalji
+Tuesday,09:00 am,10:00 am,Lab 2,EXXA511-B,Business Communication & Ethics  Laboratory (B),Dr. Vaishali Ghadyalji
+Thursday,11:00 am,12:00 pm,Classroom B,EXC501-A,Digital VLSI Design (A),Mr. Sagar Mhatre
+Monday,11:00 am,12:00 pm,Classroom A,EXC501-A,Digital VLSI Design (A),Mr. Sagar Mhatre
+Tuesday,08:00 am,09:00 am,Classroom B,EXC501-A,Digital VLSI Design (A),Mr. Sagar Mhatre
+Friday,02:00 pm,03:00 pm,Classroom B,EXC501-B,Digital VLSI Design (B),Mr. Sagar Mhatre
+Monday,04:00 pm,05:00 pm,Classroom B,EXC501-B,Digital VLSI Design (B),Mr. Sagar Mhatre
+Tuesday,10:00 am,11:00 am,Classroom A,EXC501-B,Digital VLSI Design (B),Mr. Sagar Mhatre
+Friday,10:00 am,11:00 am,Classroom A,EXC502-A,Discrete Time Signal Processing (A),Dr. Priya Hankare
+Thursday,03:00 pm,04:00 pm,Classroom A,EXC502-A,Discrete Time Signal Processing (A),Dr. Priya Hankare
+Thursday,10:00 am,11:00 am,Lab 1,EXC502-A,Discrete Time Signal Processing (A),Dr. Priya Hankare
+Tuesday,04:00 pm,05:00 pm,Classroom A,EXC502-B,Discrete Time Signal Processing (B),Dr. Priya Hankare
+Wednesday,09:00 am,10:00 am,Classroom B,EXC502-B,Discrete Time Signal Processing (B),Dr. Priya Hankare
+Monday,04:00 pm,05:00 pm,Lab 1,EXC502-B,Discrete Time Signal Processing (B),Dr. Priya Hankare
+Friday,03:00 pm,04:00 pm,Classroom B,EXC503-A,Computer Communication Networks (A),Ms. Rupali Satpute
+Thursday,03:00 pm,04:00 pm,Classroom B,EXC503-A,Computer Communication Networks (A),Ms. Rupali Satpute
+Friday,04:00 pm,05:00 pm,Classroom A,EXC503-A,Computer Communication Networks (A),Ms. Rupali Satpute
+Thursday,09:00 am,10:00 am,Classroom A,EXC503-B,Computer Communication Networks (B),Ms. Rupali Satpute
+Tuesday,03:00 pm,04:00 pm,Classroom B,EXC503-B,Computer Communication Networks (B),Ms. Rupali Satpute
+Tuesday,08:00 am,09:00 am,Lab 1,EXC503-B,Computer Communication Networks (B),Ms. Rupali Satpute
+Wednesday,02:00 pm,03:00 pm,Classroom B,EXDLC5042-A,"Department Level Elective Course - I
+Sensor Technology (A)",Mr. Sandeep Mishra
+Thursday,02:00 pm,03:00 pm,Classroom A,EXDLC5042-A,"Department Level Elective Course - I
+Sensor Technology (A)",Mr. Sandeep Mishra
+Wednesday,04:00 pm,05:00 pm,Classroom B,EXDLC5042-A,"Department Level Elective Course - I
+Sensor Technology (A)",Mr. Sandeep Mishra
+Monday,08:00 am,09:00 am,Classroom A,EXDLC5042-B,"Department Level Elective Course - I
+Sensor Technology (B)",Mr. Sandeep Mishra
+Thursday,09:00 am,10:00 am,Lab 1,EXDLC5042-B,"Department Level Elective Course - I
+Sensor Technology (B)",Mr. Sandeep Mishra
+Wednesday,11:00 am,12:00 pm,Classroom A,EXDLC5042-B,"Department Level Elective Course - I
+Sensor Technology (B)",Mr. Sandeep Mishra
+Friday,04:00 pm,05:00 pm,Classroom B,EXDLC5044-A,"Department Level Elective Course - I
+Data Structure and Algorithms (A)",Ms. Rashmi Adatkar
+Monday,09:00 am,10:00 am,Classroom B,EXDLC5044-A,"Department Level Elective Course - I
+Data Structure and Algorithms (A)",Ms. Rashmi Adatkar
+Monday,01:00 pm,02:00 pm,Classroom B,EXDLC5044-A,"Department Level Elective Course - I
+Data Structure and Algorithms (A)",Ms. Rashmi Adatkar
+Tuesday,04:00 pm,05:00 pm,Classroom B,EXDLC5044-B,"Department Level Elective Course - I
+Data Structure and Algorithms (B)",Ms. Rashmi Adatkar
+Thursday,09:00 am,10:00 am,Lab 2,EXDLC5044-B,"Department Level Elective Course - I
+Data Structure and Algorithms (B)",Ms. Rashmi Adatkar
+Friday,10:00 am,11:00 am,Classroom B,EXDLC5044-B,"Department Level Elective Course - I
+Data Structure and Algorithms (B)",Ms. Rashmi Adatkar
+Wednesday,08:00 am,09:00 am,Classroom A,MMC5051-A,"Multidisciplinary Minor Course:
+Artificial Intelligence (A)",Dr. Jayashree Khanapuri
+Thursday,11:00 am,12:00 pm,Lab 1,MMC5051-A,"Multidisciplinary Minor Course:
+Artificial Intelligence (A)",Dr. Jayashree Khanapuri
+Wednesday,04:00 pm,05:00 pm,Lab 1,MMC5051-A,"Multidisciplinary Minor Course:
+Artificial Intelligence (A)",Dr. Jayashree Khanapuri
+Tuesday,04:00 pm,05:00 pm,Lab 1,MMC5051-B,"Multidisciplinary Minor Course:
+Artificial Intelligence (B)",Dr. Jayashree Khanapuri
+Monday,09:00 am,10:00 am,Lab 1,MMC5051-B,"Multidisciplinary Minor Course:
+Artificial Intelligence (B)",Dr. Jayashree Khanapuri
+Monday,10:00 am,11:00 am,Classroom B,MMC5051-B,"Multidisciplinary Minor Course:
+Artificial Intelligence (B)",Dr. Jayashree Khanapuri
+Friday,11:00 am,12:00 pm,Classroom A,MMC5052-A,"Multidisciplinary Minor Course:
+IOT & Cloud Computing (A)",Dr. Pradyna Kamble
+Tuesday,01:00 pm,02:00 pm,Lab 1,MMC5052-A,"Multidisciplinary Minor Course:
+IOT & Cloud Computing (A)",Dr. Pradyna Kamble
+Tuesday,04:00 pm,05:00 pm,Lab 2,MMC5052-A,"Multidisciplinary Minor Course:
+IOT & Cloud Computing (A)",Dr. Pradyna Kamble
+Thursday,11:00 am,12:00 pm,Lab 2,MMC5052-B,"Multidisciplinary Minor Course:
+IOT & Cloud Computing (B)",Dr. Pradyna Kamble
+Friday,04:00 pm,05:00 pm,Lab 1,MMC5052-B,"Multidisciplinary Minor Course:
+IOT & Cloud Computing (B)",Dr. Pradyna Kamble
+Thursday,01:00 pm,02:00 pm,Classroom A,MMC5052-B,"Multidisciplinary Minor Course:
+IOT & Cloud Computing (B)",Dr. Pradyna Kamble
+Thursday,03:00 pm,04:00 pm,Lab 1,MMC5053-A,"Multidisciplinary Minor Course:
+Very Large Scale Integrated Circuits (A)",Mr. Sagar Mhatre
+Tuesday,03:00 pm,04:00 pm,Lab 1,MMC5053-A,"Multidisciplinary Minor Course:
+Very Large Scale Integrated Circuits (A)",Mr. Sagar Mhatre
+Thursday,02:00 pm,03:00 pm,Classroom B,MMC5053-A,"Multidisciplinary Minor Course:
+Very Large Scale Integrated Circuits (A)",Mr. Sagar Mhatre
+Thursday,01:00 pm,02:00 pm,Classroom B,MMC5053-B,"Multidisciplinary Minor Course:
+Very Large Scale Integrated Circuits (B)",Mr. Sagar Mhatre
+Monday,03:00 pm,04:00 pm,Classroom B,MMC5053-B,"Multidisciplinary Minor Course:
+Very Large Scale Integrated Circuits (B)",Mr. Sagar Mhatre
+Wednesday,03:00 pm,04:00 pm,Classroom B,MMC5053-B,"Multidisciplinary Minor Course:
+Very Large Scale Integrated Circuits (B)",Mr. Sagar Mhatre
+Wednesday,08:00 am,09:00 am,Classroom B,MMC5054-A,"Multidisciplinary Minor Course:
+Innovation & Enterprenurship (A)",Ms. Divya Gajangi
+Friday,10:00 am,11:00 am,Lab 1,MMC5054-A,"Multidisciplinary Minor Course:
+Innovation & Enterprenurship (A)",Ms. Divya Gajangi
+Thursday,08:00 am,09:00 am,Classroom A,MMC5054-A,"Multidisciplinary Minor Course:
+Innovation & Enterprenurship (A)",Ms. Divya Gajangi
+Wednesday,11:00 am,12:00 pm,Lab 1,MMC5054-B,"Multidisciplinary Minor Course:
+Innovation & Enterprenurship (B)",Ms. Divya Gajangi
+Thursday,01:00 pm,02:00 pm,Lab 1,MMC5054-B,"Multidisciplinary Minor Course:
+Innovation & Enterprenurship (B)",Ms. Divya Gajangi
+Monday,01:00 pm,02:00 pm,Lab 1,MMC5054-B,"Multidisciplinary Minor Course:
+Innovation & Enterprenurship (B)",Ms. Divya Gajangi
+Wednesday,10:00 am,11:00 am,Lab 1,EXPR54-A,Community Engagement PBL – Minor Project (Embedded Systems based projects) (A),Ms. Swati Shinde
+Monday,03:00 pm,04:00 pm,Lab 1,EXPR54-A,Community Engagement PBL – Minor Project (Embedded Systems based projects) (A),Ms. Swati Shinde
+Friday,02:00 pm,03:00 pm,Lab 1,EXPR54-A,Community Engagement PBL – Minor Project (Embedded Systems based projects) (A),Ms. Swati Shinde
+Thursday,10:00 am,11:00 am,Lab 2,EXPR54-B,Community Engagement PBL – Minor Project (Embedded Systems based projects) (B),Ms. Swati Shinde
+Monday,01:00 pm,02:00 pm,Lab 2,EXPR54-B,Community Engagement PBL – Minor Project (Embedded Systems based projects) (B),Ms. Swati Shinde
+Wednesday,01:00 pm,02:00 pm,Classroom B,EXPR54-B,Community Engagement PBL – Minor Project (Embedded Systems based projects) (B),Ms. Swati Shinde
+Friday,10:00 am,11:00 am,Lab 2,EXXS510-A,Skill Enhancement – SAT X: Skill-Based Learning (Aptitude/Logic Building and Competitive Programming skills) (A),Mr. Amit Kukreja
+Thursday,04:00 pm,05:00 pm,Classroom A,EXXS510-A,Skill Enhancement – SAT X: Skill-Based Learning (Aptitude/Logic Building and Competitive Programming skills) (A),Mr. Amit Kukreja
+Monday,03:00 pm,04:00 pm,Lab 2,EXXS510-A,Skill Enhancement – SAT X: Skill-Based Learning (Aptitude/Logic Building and Competitive Programming skills) (A),Mr. Amit Kukreja
+Friday,04:00 pm,05:00 pm,Lab 2,EXXS510-B,Skill Enhancement – SAT X: Skill-Based Learning (Aptitude/Logic Building and Competitive Programming skills) (B),Mr. Amit Kukreja
+Friday,11:00 am,12:00 pm,Classroom B,EXXS510-B,Skill Enhancement – SAT X: Skill-Based Learning (Aptitude/Logic Building and Competitive Programming skills) (B),Mr. Amit Kukreja
+Friday,01:00 pm,02:00 pm,Classroom A,EXXS510-B,Skill Enhancement – SAT X: Skill-Based Learning (Aptitude/Logic Building and Competitive Programming skills) (B),Mr. Amit Kukreja
+Monday,10:00 am,11:00 am,Lab 1,EXXA511-A,Value Education – SAT XI: Activity-Based Learning (Business Communication & Ethics) (A),Ms. Pallavi Mane
+Friday,03:00 pm,04:00 pm,Lab 1,EXXA511-A,Value Education – SAT XI: Activity-Based Learning (Business Communication & Ethics) (A),Ms. Pallavi Mane
+Friday,11:00 am,12:00 pm,Lab 1,EXXA511-A,Value Education – SAT XI: Activity-Based Learning (Business Communication & Ethics) (A),Ms. Pallavi Mane
+Wednesday,04:00 pm,05:00 pm,Lab 2,EXXA511-B,Value Education – SAT XI: Activity-Based Learning (Business Communication & Ethics) (B),Ms. Pallavi Mane
+Thursday,03:00 pm,04:00 pm,Lab 2,EXXA511-B,Value Education – SAT XI: Activity-Based Learning (Business Communication & Ethics) (B),Ms. Pallavi Mane
+Friday,08:00 am,09:00 am,Classroom A,EXXA511-B,Value Education – SAT XI: Activity-Based Learning (Business Communication & Ethics) (B),Ms. Pallavi Mane

@@ -1,56 +1,974 @@
 [
   {
-    "day": "Monday",
-    "start_time": "10:40 am",
-    "end_time": "11:30 am",
-    "room": "Room 101",
-    "subject_code": "sub1",
-    "subject_name": "sub1",
-    "faculty": "Prof. B"
+    "day": "Tuesday",
+    "start_time": "08:00 am",
+    "end_time": "09:00 am",
+    "room": "Classroom A",
+    "subject_code": "EXL501-A",
+    "subject_name": "Digital VLSI Design Laboratory (A)",
+    "faculty": "Mr. Sagar Mhatre"
   },
   {
     "day": "Tuesday",
-    "start_time": "09:50 am",
-    "end_time": "10:40 am",
-    "room": "Room 101",
-    "subject_code": "sub1",
-    "subject_name": "sub1",
-    "faculty": "Prof. B"
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Classroom A",
+    "subject_code": "EXL501-A",
+    "subject_name": "Digital VLSI Design Laboratory (A)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXL501-B",
+    "subject_name": "Digital VLSI Design Laboratory (B)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXL501-B",
+    "subject_name": "Digital VLSI Design Laboratory (B)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "08:00 am",
+    "end_time": "09:00 am",
+    "room": "Classroom A",
+    "subject_code": "EXL502-A",
+    "subject_name": "Discrete Time Signal Processing Laboratory (A)",
+    "faculty": "Dr. Priya Hankare"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Classroom A",
+    "subject_code": "EXL502-A",
+    "subject_name": "Discrete Time Signal Processing Laboratory (A)",
+    "faculty": "Dr. Priya Hankare"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "room": "Classroom B",
+    "subject_code": "EXL502-B",
+    "subject_name": "Discrete Time Signal Processing Laboratory (B)",
+    "faculty": "Dr. Priya Hankare"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXL502-B",
+    "subject_name": "Discrete Time Signal Processing Laboratory (B)",
+    "faculty": "Dr. Priya Hankare"
   },
   {
     "day": "Monday",
-    "start_time": "09:50 am",
-    "end_time": "10:40 am",
-    "room": "Room 101",
-    "subject_code": "sub2",
-    "subject_name": "sub2",
-    "faculty": "Prof. B"
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXDLL5042-A",
+    "subject_name": "Department Level Elective Course - I\nSensor Technology Laboratory (A)",
+    "faculty": "Mr. Sandeep Mishra"
   },
   {
-    "day": "Tuesday",
-    "start_time": "12:20 pm",
-    "end_time": "01:10 pm",
-    "room": "Room 101",
-    "subject_code": "sub2",
-    "subject_name": "sub2",
-    "faculty": "Prof. B"
+    "day": "Monday",
+    "start_time": "02:00 pm",
+    "end_time": "03:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXDLL5042-A",
+    "subject_name": "Department Level Elective Course - I\nSensor Technology Laboratory (A)",
+    "faculty": "Mr. Sandeep Mishra"
   },
   {
     "day": "Wednesday",
     "start_time": "02:00 pm",
-    "end_time": "02:50 pm",
-    "room": "Room 101",
-    "subject_code": "sub3",
-    "subject_name": "sub3",
-    "faculty": "Prof. A"
+    "end_time": "03:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXDLL5042-B",
+    "subject_name": "Department Level Elective Course - I\nSensor Technology Laboratory (B)",
+    "faculty": "Mr. Sandeep Mishra"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "03:00 pm",
+    "end_time": "04:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXDLL5042-B",
+    "subject_name": "Department Level Elective Course - I\nSensor Technology Laboratory (B)",
+    "faculty": "Mr. Sandeep Mishra"
+  },
+  {
+    "day": "Friday",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "room": "Classroom A",
+    "subject_code": "EXDLL5044-A",
+    "subject_name": "Department Level Elective Course - I \nData Structure and Algorithms Laboratory (A)",
+    "faculty": "Ms. Rupali Satpute"
+  },
+  {
+    "day": "Friday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXDLL5044-A",
+    "subject_name": "Department Level Elective Course - I \nData Structure and Algorithms Laboratory (A)",
+    "faculty": "Ms. Rupali Satpute"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Classroom B",
+    "subject_code": "EXDLL5044-B",
+    "subject_name": "Department Level Elective Course - I \nData Structure and Algorithms Laboratory (B)",
+    "faculty": "Ms. Rupali Satpute"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "room": "Classroom B",
+    "subject_code": "EXDLL5044-B",
+    "subject_name": "Department Level Elective Course - I \nData Structure and Algorithms Laboratory (B)",
+    "faculty": "Ms. Rupali Satpute"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Classroom A",
+    "subject_code": "MMCL5051-A",
+    "subject_name": "Multidisciplinary Minor Course:\nArtificial Intelligence Laboratory (A)",
+    "faculty": "Dr. Jayashree Khanapuri"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "02:00 pm",
+    "end_time": "03:00 pm",
+    "room": "Classroom A",
+    "subject_code": "MMCL5051-A",
+    "subject_name": "Multidisciplinary Minor Course:\nArtificial Intelligence Laboratory (A)",
+    "faculty": "Dr. Jayashree Khanapuri"
+  },
+  {
+    "day": "Monday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Classroom A",
+    "subject_code": "MMCL5051-B",
+    "subject_name": "Multidisciplinary Minor Course:\nArtificial Intelligence Laboratory (B)",
+    "faculty": "Dr. Jayashree Khanapuri"
+  },
+  {
+    "day": "Monday",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "room": "Classroom A",
+    "subject_code": "MMCL5051-B",
+    "subject_name": "Multidisciplinary Minor Course:\nArtificial Intelligence Laboratory (B)",
+    "faculty": "Dr. Jayashree Khanapuri"
+  },
+  {
+    "day": "Monday",
+    "start_time": "08:00 am",
+    "end_time": "09:00 am",
+    "room": "Classroom B",
+    "subject_code": "MMCL5052-A",
+    "subject_name": "Multidisciplinary Minor Course:\nIOT & Cloud Computing Laboratory (A)",
+    "faculty": "Dr. Pradyna Kamble"
+  },
+  {
+    "day": "Monday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Classroom B",
+    "subject_code": "MMCL5052-A",
+    "subject_name": "Multidisciplinary Minor Course:\nIOT & Cloud Computing Laboratory (A)",
+    "faculty": "Dr. Pradyna Kamble"
+  },
+  {
+    "day": "Friday",
+    "start_time": "08:00 am",
+    "end_time": "09:00 am",
+    "room": "Classroom A",
+    "subject_code": "MMCL5052-B",
+    "subject_name": "Multidisciplinary Minor Course:\nIOT & Cloud Computing Laboratory (B)",
+    "faculty": "Dr. Pradyna Kamble"
+  },
+  {
+    "day": "Friday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Classroom A",
+    "subject_code": "MMCL5052-B",
+    "subject_name": "Multidisciplinary Minor Course:\nIOT & Cloud Computing Laboratory (B)",
+    "faculty": "Dr. Pradyna Kamble"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "08:00 am",
+    "end_time": "09:00 am",
+    "room": "Classroom A",
+    "subject_code": "MMCL5053-A",
+    "subject_name": "Multidisciplinary Minor Course:\nVery Large Scale Integrated Circuits Laboratory (A)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Classroom A",
+    "subject_code": "MMCL5053-A",
+    "subject_name": "Multidisciplinary Minor Course:\nVery Large Scale Integrated Circuits Laboratory (A)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Friday",
+    "start_time": "08:00 am",
+    "end_time": "09:00 am",
+    "room": "Classroom B",
+    "subject_code": "MMCL5053-B",
+    "subject_name": "Multidisciplinary Minor Course:\nVery Large Scale Integrated Circuits Laboratory (B)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Friday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Classroom B",
+    "subject_code": "MMCL5053-B",
+    "subject_name": "Multidisciplinary Minor Course:\nVery Large Scale Integrated Circuits Laboratory (B)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Friday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Lab 1",
+    "subject_code": "EXPR54-A",
+    "subject_name": "Community Engagement PBL \u2013 Minor Project Laboratory (Embedded Systems based projects) (A)",
+    "faculty": "Ms. Swati Shinde"
+  },
+  {
+    "day": "Friday",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "room": "Lab 1",
+    "subject_code": "EXPR54-A",
+    "subject_name": "Community Engagement PBL \u2013 Minor Project Laboratory (Embedded Systems based projects) (A)",
+    "faculty": "Ms. Swati Shinde"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXPR54-B",
+    "subject_name": "Community Engagement PBL \u2013 Minor Project Laboratory (Embedded Systems based projects) (B)",
+    "faculty": "Ms. Swati Shinde"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXPR54-B",
+    "subject_name": "Community Engagement PBL \u2013 Minor Project Laboratory (Embedded Systems based projects) (B)",
+    "faculty": "Ms. Swati Shinde"
+  },
+  {
+    "day": "Monday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXXA511-A",
+    "subject_name": "Business Communication & Ethics  Laboratory (A)",
+    "faculty": "Dr. Vaishali Ghadyalji"
+  },
+  {
+    "day": "Monday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXXA511-A",
+    "subject_name": "Business Communication & Ethics  Laboratory (A)",
+    "faculty": "Dr. Vaishali Ghadyalji"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Lab 1",
+    "subject_code": "EXXA511-B",
+    "subject_name": "Business Communication & Ethics  Laboratory (B)",
+    "faculty": "Dr. Vaishali Ghadyalji"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Lab 1",
+    "subject_code": "EXXA511-B",
+    "subject_name": "Business Communication & Ethics  Laboratory (B)",
+    "faculty": "Dr. Vaishali Ghadyalji"
+  },
+  {
+    "day": "Monday",
+    "start_time": "04:00 pm",
+    "end_time": "05:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXC501-A",
+    "subject_name": "Digital VLSI Design (A)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Monday",
+    "start_time": "02:00 pm",
+    "end_time": "03:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXC501-A",
+    "subject_name": "Digital VLSI Design (A)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Classroom B",
+    "subject_code": "EXC501-A",
+    "subject_name": "Digital VLSI Design (A)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Lab 2",
+    "subject_code": "EXC501-B",
+    "subject_name": "Digital VLSI Design (B)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "04:00 pm",
+    "end_time": "05:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXC501-B",
+    "subject_name": "Digital VLSI Design (B)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Friday",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "room": "Classroom B",
+    "subject_code": "EXC501-B",
+    "subject_name": "Digital VLSI Design (B)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "02:00 pm",
+    "end_time": "03:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXC502-A",
+    "subject_name": "Discrete Time Signal Processing (A)",
+    "faculty": "Dr. Priya Hankare"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "02:00 pm",
+    "end_time": "03:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXC502-A",
+    "subject_name": "Discrete Time Signal Processing (A)",
+    "faculty": "Dr. Priya Hankare"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "08:00 am",
+    "end_time": "09:00 am",
+    "room": "Classroom B",
+    "subject_code": "EXC502-A",
+    "subject_name": "Discrete Time Signal Processing (A)",
+    "faculty": "Dr. Priya Hankare"
+  },
+  {
+    "day": "Monday",
+    "start_time": "03:00 pm",
+    "end_time": "04:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXC502-B",
+    "subject_name": "Discrete Time Signal Processing (B)",
+    "faculty": "Dr. Priya Hankare"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "03:00 pm",
+    "end_time": "04:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXC502-B",
+    "subject_name": "Discrete Time Signal Processing (B)",
+    "faculty": "Dr. Priya Hankare"
+  },
+  {
+    "day": "Monday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Lab 1",
+    "subject_code": "EXC502-B",
+    "subject_name": "Discrete Time Signal Processing (B)",
+    "faculty": "Dr. Priya Hankare"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "04:00 pm",
+    "end_time": "05:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXC503-A",
+    "subject_name": "Computer Communication Networks (A)",
+    "faculty": "Ms. Rupali Satpute"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Classroom B",
+    "subject_code": "EXC503-A",
+    "subject_name": "Computer Communication Networks (A)",
+    "faculty": "Ms. Rupali Satpute"
+  },
+  {
+    "day": "Monday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXC503-A",
+    "subject_name": "Computer Communication Networks (A)",
+    "faculty": "Ms. Rupali Satpute"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXC503-B",
+    "subject_name": "Computer Communication Networks (B)",
+    "faculty": "Ms. Rupali Satpute"
+  },
+  {
+    "day": "Friday",
+    "start_time": "04:00 pm",
+    "end_time": "05:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXC503-B",
+    "subject_name": "Computer Communication Networks (B)",
+    "faculty": "Ms. Rupali Satpute"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "04:00 pm",
+    "end_time": "05:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXC503-B",
+    "subject_name": "Computer Communication Networks (B)",
+    "faculty": "Ms. Rupali Satpute"
+  },
+  {
+    "day": "Friday",
+    "start_time": "03:00 pm",
+    "end_time": "04:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXDLC5042-A",
+    "subject_name": "Department Level Elective Course - I\nSensor Technology (A)",
+    "faculty": "Mr. Sandeep Mishra"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "04:00 pm",
+    "end_time": "05:00 pm",
+    "room": "Lab 1",
+    "subject_code": "EXDLC5042-A",
+    "subject_name": "Department Level Elective Course - I\nSensor Technology (A)",
+    "faculty": "Mr. Sandeep Mishra"
+  },
+  {
+    "day": "Monday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Lab 1",
+    "subject_code": "EXDLC5042-A",
+    "subject_name": "Department Level Elective Course - I\nSensor Technology (A)",
+    "faculty": "Mr. Sandeep Mishra"
+  },
+  {
+    "day": "Friday",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "room": "Lab 2",
+    "subject_code": "EXDLC5042-B",
+    "subject_name": "Department Level Elective Course - I\nSensor Technology (B)",
+    "faculty": "Mr. Sandeep Mishra"
+  },
+  {
+    "day": "Friday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXDLC5042-B",
+    "subject_name": "Department Level Elective Course - I\nSensor Technology (B)",
+    "faculty": "Mr. Sandeep Mishra"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "room": "Classroom A",
+    "subject_code": "EXDLC5042-B",
+    "subject_name": "Department Level Elective Course - I\nSensor Technology (B)",
+    "faculty": "Mr. Sandeep Mishra"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Lab 2",
+    "subject_code": "EXDLC5044-A",
+    "subject_name": "Department Level Elective Course - I\nData Structure and Algorithms (A)",
+    "faculty": "Ms. Rashmi Adatkar"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Classroom A",
+    "subject_code": "EXDLC5044-A",
+    "subject_name": "Department Level Elective Course - I\nData Structure and Algorithms (A)",
+    "faculty": "Ms. Rashmi Adatkar"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "02:00 pm",
+    "end_time": "03:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXDLC5044-A",
+    "subject_name": "Department Level Elective Course - I\nData Structure and Algorithms (A)",
+    "faculty": "Ms. Rashmi Adatkar"
+  },
+  {
+    "day": "Friday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXDLC5044-B",
+    "subject_name": "Department Level Elective Course - I\nData Structure and Algorithms (B)",
+    "faculty": "Ms. Rashmi Adatkar"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Lab 1",
+    "subject_code": "EXDLC5044-B",
+    "subject_name": "Department Level Elective Course - I\nData Structure and Algorithms (B)",
+    "faculty": "Ms. Rashmi Adatkar"
+  },
+  {
+    "day": "Monday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Lab 2",
+    "subject_code": "EXDLC5044-B",
+    "subject_name": "Department Level Elective Course - I\nData Structure and Algorithms (B)",
+    "faculty": "Ms. Rashmi Adatkar"
+  },
+  {
+    "day": "Friday",
+    "start_time": "03:00 pm",
+    "end_time": "04:00 pm",
+    "room": "Classroom B",
+    "subject_code": "MMC5051-A",
+    "subject_name": "Multidisciplinary Minor Course:\nArtificial Intelligence (A)",
+    "faculty": "Dr. Jayashree Khanapuri"
+  },
+  {
+    "day": "Monday",
+    "start_time": "04:00 pm",
+    "end_time": "05:00 pm",
+    "room": "Classroom B",
+    "subject_code": "MMC5051-A",
+    "subject_name": "Multidisciplinary Minor Course:\nArtificial Intelligence (A)",
+    "faculty": "Dr. Jayashree Khanapuri"
   },
   {
     "day": "Friday",
     "start_time": "02:00 pm",
-    "end_time": "02:50 pm",
-    "room": "Room 101",
-    "subject_code": "sub3",
-    "subject_name": "sub3",
-    "faculty": "Prof. A"
+    "end_time": "03:00 pm",
+    "room": "Classroom A",
+    "subject_code": "MMC5051-A",
+    "subject_name": "Multidisciplinary Minor Course:\nArtificial Intelligence (A)",
+    "faculty": "Dr. Jayashree Khanapuri"
+  },
+  {
+    "day": "Friday",
+    "start_time": "04:00 pm",
+    "end_time": "05:00 pm",
+    "room": "Classroom B",
+    "subject_code": "MMC5051-B",
+    "subject_name": "Multidisciplinary Minor Course:\nArtificial Intelligence (B)",
+    "faculty": "Dr. Jayashree Khanapuri"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Lab 1",
+    "subject_code": "MMC5051-B",
+    "subject_name": "Multidisciplinary Minor Course:\nArtificial Intelligence (B)",
+    "faculty": "Dr. Jayashree Khanapuri"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "02:00 pm",
+    "end_time": "03:00 pm",
+    "room": "Lab 1",
+    "subject_code": "MMC5051-B",
+    "subject_name": "Multidisciplinary Minor Course:\nArtificial Intelligence (B)",
+    "faculty": "Dr. Jayashree Khanapuri"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Lab 2",
+    "subject_code": "MMC5052-A",
+    "subject_name": "Multidisciplinary Minor Course:\nIOT & Cloud Computing (A)",
+    "faculty": "Dr. Pradyna Kamble"
+  },
+  {
+    "day": "Friday",
+    "start_time": "03:00 pm",
+    "end_time": "04:00 pm",
+    "room": "Lab 1",
+    "subject_code": "MMC5052-A",
+    "subject_name": "Multidisciplinary Minor Course:\nIOT & Cloud Computing (A)",
+    "faculty": "Dr. Pradyna Kamble"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "room": "Classroom A",
+    "subject_code": "MMC5052-A",
+    "subject_name": "Multidisciplinary Minor Course:\nIOT & Cloud Computing (A)",
+    "faculty": "Dr. Pradyna Kamble"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Lab 1",
+    "subject_code": "MMC5052-B",
+    "subject_name": "Multidisciplinary Minor Course:\nIOT & Cloud Computing (B)",
+    "faculty": "Dr. Pradyna Kamble"
+  },
+  {
+    "day": "Monday",
+    "start_time": "02:00 pm",
+    "end_time": "03:00 pm",
+    "room": "Lab 1",
+    "subject_code": "MMC5052-B",
+    "subject_name": "Multidisciplinary Minor Course:\nIOT & Cloud Computing (B)",
+    "faculty": "Dr. Pradyna Kamble"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "03:00 pm",
+    "end_time": "04:00 pm",
+    "room": "Classroom A",
+    "subject_code": "MMC5052-B",
+    "subject_name": "Multidisciplinary Minor Course:\nIOT & Cloud Computing (B)",
+    "faculty": "Dr. Pradyna Kamble"
+  },
+  {
+    "day": "Friday",
+    "start_time": "04:00 pm",
+    "end_time": "05:00 pm",
+    "room": "Lab 1",
+    "subject_code": "MMC5053-A",
+    "subject_name": "Multidisciplinary Minor Course:\nVery Large Scale Integrated Circuits (A)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Monday",
+    "start_time": "03:00 pm",
+    "end_time": "04:00 pm",
+    "room": "Classroom B",
+    "subject_code": "MMC5053-A",
+    "subject_name": "Multidisciplinary Minor Course:\nVery Large Scale Integrated Circuits (A)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Classroom B",
+    "subject_code": "MMC5053-A",
+    "subject_name": "Multidisciplinary Minor Course:\nVery Large Scale Integrated Circuits (A)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "03:00 pm",
+    "end_time": "04:00 pm",
+    "room": "Classroom A",
+    "subject_code": "MMC5053-B",
+    "subject_name": "Multidisciplinary Minor Course:\nVery Large Scale Integrated Circuits (B)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "room": "Lab 1",
+    "subject_code": "MMC5053-B",
+    "subject_name": "Multidisciplinary Minor Course:\nVery Large Scale Integrated Circuits (B)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Friday",
+    "start_time": "02:00 pm",
+    "end_time": "03:00 pm",
+    "room": "Classroom B",
+    "subject_code": "MMC5053-B",
+    "subject_name": "Multidisciplinary Minor Course:\nVery Large Scale Integrated Circuits (B)",
+    "faculty": "Mr. Sagar Mhatre"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Lab 1",
+    "subject_code": "MMC5054-A",
+    "subject_name": "Multidisciplinary Minor Course:\nInnovation & Enterprenurship (A)",
+    "faculty": "Ms. Divya Gajangi"
+  },
+  {
+    "day": "Monday",
+    "start_time": "02:00 pm",
+    "end_time": "03:00 pm",
+    "room": "Lab 2",
+    "subject_code": "MMC5054-A",
+    "subject_name": "Multidisciplinary Minor Course:\nInnovation & Enterprenurship (A)",
+    "faculty": "Ms. Divya Gajangi"
+  },
+  {
+    "day": "Monday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Lab 2",
+    "subject_code": "MMC5054-A",
+    "subject_name": "Multidisciplinary Minor Course:\nInnovation & Enterprenurship (A)",
+    "faculty": "Ms. Divya Gajangi"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Classroom B",
+    "subject_code": "MMC5054-B",
+    "subject_name": "Multidisciplinary Minor Course:\nInnovation & Enterprenurship (B)",
+    "faculty": "Ms. Divya Gajangi"
+  },
+  {
+    "day": "Monday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Lab 1",
+    "subject_code": "MMC5054-B",
+    "subject_name": "Multidisciplinary Minor Course:\nInnovation & Enterprenurship (B)",
+    "faculty": "Ms. Divya Gajangi"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "08:00 am",
+    "end_time": "09:00 am",
+    "room": "Classroom B",
+    "subject_code": "MMC5054-B",
+    "subject_name": "Multidisciplinary Minor Course:\nInnovation & Enterprenurship (B)",
+    "faculty": "Ms. Divya Gajangi"
+  },
+  {
+    "day": "Friday",
+    "start_time": "03:00 pm",
+    "end_time": "04:00 pm",
+    "room": "Lab 2",
+    "subject_code": "EXPR54-A",
+    "subject_name": "Community Engagement PBL \u2013 Minor Project (Embedded Systems based projects) (A)",
+    "faculty": "Ms. Swati Shinde"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "room": "Classroom B",
+    "subject_code": "EXPR54-A",
+    "subject_name": "Community Engagement PBL \u2013 Minor Project (Embedded Systems based projects) (A)",
+    "faculty": "Ms. Swati Shinde"
+  },
+  {
+    "day": "Friday",
+    "start_time": "02:00 pm",
+    "end_time": "03:00 pm",
+    "room": "Lab 1",
+    "subject_code": "EXPR54-A",
+    "subject_name": "Community Engagement PBL \u2013 Minor Project (Embedded Systems based projects) (A)",
+    "faculty": "Ms. Swati Shinde"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "03:00 pm",
+    "end_time": "04:00 pm",
+    "room": "Lab 1",
+    "subject_code": "EXPR54-B",
+    "subject_name": "Community Engagement PBL \u2013 Minor Project (Embedded Systems based projects) (B)",
+    "faculty": "Ms. Swati Shinde"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "09:00 am",
+    "end_time": "10:00 am",
+    "room": "Lab 1",
+    "subject_code": "EXPR54-B",
+    "subject_name": "Community Engagement PBL \u2013 Minor Project (Embedded Systems based projects) (B)",
+    "faculty": "Ms. Swati Shinde"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Lab 1",
+    "subject_code": "EXPR54-B",
+    "subject_name": "Community Engagement PBL \u2013 Minor Project (Embedded Systems based projects) (B)",
+    "faculty": "Ms. Swati Shinde"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "08:00 am",
+    "end_time": "09:00 am",
+    "room": "Lab 1",
+    "subject_code": "EXXS510-A",
+    "subject_name": "Skill Enhancement \u2013 SAT X: Skill-Based Learning (Aptitude/Logic Building and Competitive Programming skills) (A)",
+    "faculty": "Mr. Amit Kukreja"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Lab 2",
+    "subject_code": "EXXS510-A",
+    "subject_name": "Skill Enhancement \u2013 SAT X: Skill-Based Learning (Aptitude/Logic Building and Competitive Programming skills) (A)",
+    "faculty": "Mr. Amit Kukreja"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "04:00 pm",
+    "end_time": "05:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXXS510-A",
+    "subject_name": "Skill Enhancement \u2013 SAT X: Skill-Based Learning (Aptitude/Logic Building and Competitive Programming skills) (A)",
+    "faculty": "Mr. Amit Kukreja"
+  },
+  {
+    "day": "Wednesday",
+    "start_time": "08:00 am",
+    "end_time": "09:00 am",
+    "room": "Classroom B",
+    "subject_code": "EXXS510-B",
+    "subject_name": "Skill Enhancement \u2013 SAT X: Skill-Based Learning (Aptitude/Logic Building and Competitive Programming skills) (B)",
+    "faculty": "Mr. Amit Kukreja"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "04:00 pm",
+    "end_time": "05:00 pm",
+    "room": "Lab 2",
+    "subject_code": "EXXS510-B",
+    "subject_name": "Skill Enhancement \u2013 SAT X: Skill-Based Learning (Aptitude/Logic Building and Competitive Programming skills) (B)",
+    "faculty": "Mr. Amit Kukreja"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "02:00 pm",
+    "end_time": "03:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXXS510-B",
+    "subject_name": "Skill Enhancement \u2013 SAT X: Skill-Based Learning (Aptitude/Logic Building and Competitive Programming skills) (B)",
+    "faculty": "Mr. Amit Kukreja"
+  },
+  {
+    "day": "Tuesday",
+    "start_time": "08:00 am",
+    "end_time": "09:00 am",
+    "room": "Lab 1",
+    "subject_code": "EXXA511-A",
+    "subject_name": "Value Education \u2013 SAT XI: Activity-Based Learning (Business Communication & Ethics) (A)",
+    "faculty": "Ms. Pallavi Mane"
+  },
+  {
+    "day": "Friday",
+    "start_time": "01:00 pm",
+    "end_time": "02:00 pm",
+    "room": "Classroom B",
+    "subject_code": "EXXA511-A",
+    "subject_name": "Value Education \u2013 SAT XI: Activity-Based Learning (Business Communication & Ethics) (A)",
+    "faculty": "Ms. Pallavi Mane"
+  },
+  {
+    "day": "Friday",
+    "start_time": "04:00 pm",
+    "end_time": "05:00 pm",
+    "room": "Lab 2",
+    "subject_code": "EXXA511-A",
+    "subject_name": "Value Education \u2013 SAT XI: Activity-Based Learning (Business Communication & Ethics) (A)",
+    "faculty": "Ms. Pallavi Mane"
+  },
+  {
+    "day": "Thursday",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "room": "Lab 1",
+    "subject_code": "EXXA511-B",
+    "subject_name": "Value Education \u2013 SAT XI: Activity-Based Learning (Business Communication & Ethics) (B)",
+    "faculty": "Ms. Pallavi Mane"
+  },
+  {
+    "day": "Friday",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "room": "Lab 1",
+    "subject_code": "EXXA511-B",
+    "subject_name": "Value Education \u2013 SAT XI: Activity-Based Learning (Business Communication & Ethics) (B)",
+    "faculty": "Ms. Pallavi Mane"
+  },
+  {
+    "day": "Friday",
+    "start_time": "02:00 pm",
+    "end_time": "03:00 pm",
+    "room": "Lab 2",
+    "subject_code": "EXXA511-B",
+    "subject_name": "Value Education \u2013 SAT XI: Activity-Based Learning (Business Communication & Ethics) (B)",
+    "faculty": "Ms. Pallavi Mane"
   }
 ]
